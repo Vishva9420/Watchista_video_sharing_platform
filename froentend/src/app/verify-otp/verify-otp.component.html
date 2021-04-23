@@ -1,0 +1,39 @@
+<!-- <p>forgot-password works!</p>
+
+<p>enter the phone no provided in sign up</p>
+
+<form>
+    <label>OTP</label>
+<input  #otp type="string" name="">
+<button type="submit" (click)="otpSubmit(otp.value)">Submit</button>
+</form> -->
+
+
+
+<div class="wrapper">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> <b>Watchita</b> </h2>
+     
+  
+      <!-- Icon -->
+     
+  
+      <!-- Login Form -->
+      <form>
+        <!-- <input   #emailInput   type="text" class="form-control"  placeholder="Email"> -->
+        <input     #otp type="text" id="login" class="fadeIn second" name="login" placeholder="Enter OTP">
+        <!-- <input  #pwInput   type="text" class="form-control"  placeholder="Password"> -->
+        
+        <input (click)="otpSubmit(otp.value)" type="submit" class="fadeIn fourth" value="Next">
+      </form>
+  
+      <!-- Remind Passowrd -->
+      
+  
+    </div>
+  </div>
+
+
+
+

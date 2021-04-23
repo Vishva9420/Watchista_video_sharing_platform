@@ -1,0 +1,29 @@
+<div style="background-color: black; width: 100%; height: 100px;"></div>
+<div class="main-content col-lg-10">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-category">Viewed Video</h5>
+            <h4 class="card-title"> <b>{{ dateToday | date }}</b> Your History </h4>
+        </div>
+        <div class="card-body">
+
+            <table class="table">
+                <thead class=" text-primary">
+                    <th>Video Title</th>
+                    <th>Genere</th>
+                    <th class="text-right">Time</th>
+                </thead>
+                <tbody *ngFor="let item of temp; index as i">
+                    <tr>
+                        <td><a href="http://localhost:4200/view-video?id={{temp[i]['vid']}}">{{temp[i]['title']}}</a>
+                        </td>
+                        <td>{{temp[i]['genere']}}</td>
+                        <td class="text-right">{{temp[i]['timestamp']}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</div>

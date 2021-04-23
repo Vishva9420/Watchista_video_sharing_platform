@@ -1,0 +1,158 @@
+<!-- <link href="../../froentend/node_modules/video.js/dist/video-js.css" rel="stylesheet">
+<link href="../node_modules/videojs-hls-quality-selector/dist/videojs-hls-quality-selector.css" rel="stylesheet"> -->
+
+<!-- Link Swiper's CSS -->
+<!-- <link rel="stylesheet" href="../../../node_modules/swiper/swiper-bundle.css"> -->
+<link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/5.4.6/video.min.js"></script>
+
+
+<!-- Swiper -->
+
+
+
+
+<div class="panel-header panel-header-sm">
+  <div id="container">
+    <app-searchbar (search)="search$.next($event)" style="z-index: 1;"></app-searchbar>
+  </div>
+
+</div>
+<br><br><br><br>
+
+Top Viewed Videos
+<div class="">
+  <div *ngFor="let i of searchedArray ">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-category">{{i?.title}}</h5>
+        <h4 class="card-title">{{i?._id}}</h4>
+        <h4 class="card-title">{{i?.genere}}</h4>
+        <h4 class="card-title">{{i?.uid}}</h4>
+      </div>
+
+      <div class="card-body">
+        <div>
+          <button (click)="onClick(i.uid,i?._id,i?.genere)">
+            <video id="video_2" class="video-js vjs-default-skin" width="300" height="200" preload="auto"
+              data-setup="{}">
+              <source [src]="getSanitizeUrl(i?.url)" type="application/x-mpegURL">
+            </video>
+            <script>
+              var player = videojs('video_2');
+              player.play();
+            </script>
+          </button>
+        </div>
+      </div>
+
+
+      <div class="card-footer">
+        <div class="stats">
+          <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+<!-- <br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br><br><br>
+<br><br><br><br><br> -->
+
+<div class="main-content">
+
+  <div style="width: 1260px; height: 600px;">
+    <carousel [noWrap]="noWrapSlides" [showIndicators]="showIndicator">
+      <slide *ngFor="let item of car; let index=index">
+        <video id="video_2" class="video-js vjs-default-skin" width="1260" height="600" preload="auto" data-setup="{}">
+          <source [src]="getSanitizeUrl(item?.url)" type="application/x-mpegURL">
+        </video>
+        <script>
+          var player = videojs('video_2');
+          player.play();
+        </script>
+
+        <div class="carousel-caption">
+
+        </div>
+      </slide>
+    </carousel>
+    <br />
+    <div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+  <!-- searched content -->
+
+
+
+
+
+
+  <div *ngFor="let item of temp; let index=index ">
+    <h1>{{disTitle[index]}}</h1>
+    <div class="row">
+      <div class="col-lg-4" *ngFor="let i of item">
+
+        <div class="card">
+
+
+          <div class="card-header">
+            <h3 class="card-category">{{i?.title}}</h3>
+          </div>
+          <div class="card-body">
+            <div>
+              <button (click)="onClick(i.uid,i?.title,i?._id,i?.genere)">
+                <video id="video_1" class="video-js vjs-default-skin" width="300" height="200" preload="auto"
+                  data-setup="{}">
+                  <source [src]="getSanitizeUrl(i?.url)" type="application/x-mpegURL">
+                </video>
+                <script>
+                  var player = videojs('video_1');
+                  player.play();
+                </script>
+              </button>
+            </div>
+            <mat-chip-list  >
+              <mat-chip color="warn" selected><b>Genere:</b> &nbsp; {{i?.genere}}</mat-chip>
+              <mat-chip color="accent" selected><b>Views: </b> &nbsp; {{i?.views}}</mat-chip>
+            </mat-chip-list>
+            <mat-chip color="primary" selected style="margin-top: 2px;"><b>description: </b> &nbsp; {{i?.description}} ...... &nbsp; &nbsp;</mat-chip>
+            <!-- <div class="row" style="float: left;">
+              <h4 ></h4>
+            <h4></h4>
+            <h5 > </h5>
+            </div> -->
+          </div>
+
+          <div class="card-footer">
+            <div class="stats">
+              <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    </div>
+
+    <br><br><br>
+
+  </div>
+
+
+</div>

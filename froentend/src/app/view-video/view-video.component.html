@@ -1,0 +1,237 @@
+<head>
+  <link href="../../../node_modules/video.js/dist/video-js.css" rel="stylesheet">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+</head>
+
+<div class="panel-header">
+  <div class="header text-center">
+    <h2 class="title">Name of playlist</h2>
+    <p class="category">Please checkout the
+      <a href="https://scttcper.github.io/ngx-toastr/" target="_blank">full PlayList.</a>
+    </p>
+  </div>
+</div>
+<div class="main-content">
+  <div class="row">
+    <div class="col-md-12">
+
+
+
+      <script>
+
+
+      </script>
+
+
+      <div class="card">
+        <div class="card-header">
+          <h4 class="card-title">Title</h4>
+        </div>
+        <div class="card-body">
+          <div class="card">
+
+            <div class="card-body">
+              <div>
+
+                <div class="player-wrapper">
+
+                  <vg-player>
+                    <vg-overlay-play></vg-overlay-play>
+                    <vg-buffering></vg-buffering>
+
+
+                    <vg-scrub-bar>
+                      <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                      <vg-scrub-bar-buffering-time></vg-scrub-bar-buffering-time>
+                    </vg-scrub-bar>
+
+                    <vg-controls>
+                      <vg-play-pause></vg-play-pause>
+                      <vg-playback-button></vg-playback-button>
+                      <vg-time-display vgProperty="current" vgFormat="mm:ss"></vg-time-display>
+                      <vg-time-display vgProperty="left" vgFormat="mm:ss"></vg-time-display>
+                      <!-- <vg-time-display vgProperty="total" vgFormat="mm:ss"></vg-time-display> -->
+                      <vg-scrub-bar style="pointer-events: none;"></vg-scrub-bar>
+                      <vg-quality-selector mat-button [matMenuTriggerFor]="menu">
+                        <mat-menu #menu="matMenu" yPosition="above">
+                          <button mat-menu-item (click)="changeResolution('auto',videos?.video[0]?.url)" >Auto</button>
+                          <button  mat-menu-item (click)="changeResolution('360',videos?.video[0]?.url)">360px</button>
+                          <button mat-menu-item (click)="changeResolution('480', videos?.video[0]?.url)">480px</button>
+                          <button mat-menu-item (click)="changeResolution('720', videos?.video[0]?.url)">720px</button>
+                          <button mat-menu-item (click)="changeResolution('1080', videos?.video[0]?.url)">1080px</button>
+                        </mat-menu>
+                      </vg-quality-selector>
+                      <vg-mute></vg-mute>
+                      <vg-volume></vg-volume>
+                      
+
+
+                      <vg-fullscreen></vg-fullscreen>
+                    </vg-controls>
+
+                    <video  #myMedia [vgMedia]="myMedia" id="myMedia" class="video-js vjs-default-skin vjs-fluid"
+                      preload="auto" data-setup="{}">
+                      <source src = "http://localhost:3000/Dead_trees/playlist.m3u8"
+                    type="application/x-mpegURL">
+                    </video>
+                    
+
+                  </vg-player>
+
+                </div>
+
+
+
+
+                <div class='row'>
+                  <div class="example-button-container">
+                    <button mat-fab color="warn" aria-label="Example icon button with a bookmark icon"
+                      (click)="onSubscribeButtonClicked()">
+                      <mat-icon>subscriptions</mat-icon>
+
+                    </button>
+                    &nbsp;
+                    <b>subscribe</b>
+                  </div>
+                  &nbsp;&nbsp;&nbsp;
+                  <div class="example-button-container">
+                    <button mat-fab color="warn" (click)="onSpamButtonClicked()">
+                      <mat-icon>block</mat-icon>
+                    </button>
+                    &nbsp;
+                    <b>Spam</b>
+                  </div>
+                </div>
+
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <form>
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <!-- <div class="places-buttons">
+              <div class="row">
+                <div class="col-md-6 ml-auto mr-auto text-center">
+                  <h4 class="card-title">
+                    Comment Section
+                   
+                  </h4>
+                </div>
+              </div>
+              <div class="row">
+                <input type='text' #comment />
+                  <button class="button button5 plus radius" (click)="onCommentButtonClicked(comment.value)"
+                  type="button"></button>
+              </div> -->
+            <div>
+              <!-- <p>write your comments here!</p>
+                <textarea #comment cols="115"></textarea>
+                <button class="button5 plus radius" (click)="onCommentButtonClicked(comment.value)"></button> -->
+
+            </div>
+            <form class="comment-form">
+              <mat-form-field class="comment-full-width">
+                <mat-label>Comments</mat-label>
+                <input matInput #comment maxlength="250">
+                <mat-hint align="start"><strong>Don't disclose personal info</strong> </mat-hint>
+                <mat-hint align="end">{{comment.value.length}} / 250</mat-hint>
+
+              </mat-form-field>
+              <div class="example-button-container">
+                <button mat-fab color="warn" aria-label="Example icon button with a bookmark icon"
+                  (click)="onCommentButtonClicked(comment?.value)">
+                  <mat-icon>add_circle</mat-icon>
+                </button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12" *ngFor="let item of videos?.comment">
+
+        <!-- <div class="danger" *ngFor="let item of videos.comment">
+                <div class="com1">
+                  <b> {{item.comments}} </b> <br />
+                </div>
+
+                <button class="b1"
+                  (click)="onLikeButtonClicked(item._id,item.like,item.dislike,item.canLike ,item.userId)"
+                  style="border: 0ch;">
+                  <mat-icon>thumb_up</mat-icon>
+                  <p> {{item.like}}</p>
+                </button>
+
+                <button class="b2"
+                  (click)="onUnlikeLikeButtonClicked(item._id,item.like,item.dislike,item.canDislike,item.userId)"
+                  style="border: 0ch;">
+                  <mat-icon>thumb_down</mat-icon>
+                  <p>{{item.dislike}}</p>
+                </button>
+
+                <input #creply type="text" style="color: black;">
+                <button mat-raised-button class="b2" (click)="onReply(item._id,item.userId,creply.value)">Reply</button> -->
+
+        <mat-accordion multi="true">
+          <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title class="com1">
+
+                <p>{{item?.comments}}</p>
+
+              </mat-panel-title>
+
+
+              <button mat-button class="b1"
+                (click)="onLikeButtonClicked(item._id,item.like,item.dislike,item.canLike ,item.userId)"
+                style="border: 0ch;">
+                <mat-icon>thumb_up</mat-icon>
+                <p>{{item.like}}</p>
+              </button>
+
+              <button mat-button class="b2"
+                (click)="onUnlikeLikeButtonClicked(item._id,item.like,item.dislike,item.canDislike,item.userId)"
+                style="border: 0ch;">
+                <mat-icon>thumb_down</mat-icon>
+                <p>{{item.dislike}}</p>
+              </button>
+              <form class="example-form">
+                <mat-form-field class="example-full-width">
+                  <mat-label color='warn'>Comments</mat-label>
+                  <input matInput #creply maxlength="250" color='warn'>
+                  <mat-hint align="end">{{creply.value.length}} / 250</mat-hint>
+
+                </mat-form-field>
+                <button mat-raised-button class="b2" color='warn'
+                  (click)="onReply(item._id,item.userId,creply.value)">Reply</button>
+              </form>
+              <!-- <input #creply type="text" style="color: black;">
+                        <button mat-raised-button class="b2"
+                          (click)="onReply(item._id,item.userId,creply.value)">Reply</button> -->
+
+            </mat-expansion-panel-header>
+            <p *ngFor="let item2 of item.cReply">{{item2.reply}}</p>
+          </mat-expansion-panel>
+        </mat-accordion>
+
+      </div>
+
+
+
+
+
+
+    </form>
+  </div>
+</div>

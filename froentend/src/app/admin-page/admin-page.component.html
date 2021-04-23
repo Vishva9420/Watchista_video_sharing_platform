@@ -1,0 +1,285 @@
+<div class="panel-header panel-header-lg">
+  <canvas baseChart id="bigDashboardChart" [datasets]="lineBigDashboardChartData" [labels]="lineBigDashboardChartLabels"
+    [colors]="lineBigDashboardChartColors" [options]="lineBigDashboardChartOptions"
+    [chartType]="lineBigDashboardChartType" (chartHover)="chartHovered($event)"
+    (chartClick)="chartClicked($event)"></canvas>
+</div>
+
+<div class="main-content">
+
+  <div class="col-lg-6 col-md-6">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="card-category">Application Logs</h5>
+        <h4 class="card-title">Live Users</h4>
+        <!-- <div ngbDropdown>
+          <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret"
+            ngbDropdownToggle>
+            <i class="now-ui-icons loader_gear"></i>
+          </button>
+          <div ngbDropdownMenu class="dropdown-menu-right">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item text-danger" href="#">Remove Data</a>
+          </div>
+        </div> -->
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+
+          <canvas baseChart id="bar" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+
+          <!-- <canvas baseChart id="lineChartExample"
+                      [datasets]="lineChartData"
+                      [labels]="lineChartLabels"
+                      [colors]="lineChartColors"
+                      [options]="lineChartOptions"
+                      [chartType]="lineChartType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas> -->
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="now-ui-icons loader_refresh spin"></i> just updated
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- <div class="col-lg-6 col-md-6">
+    <div class="card ">
+      <div class="card-header">
+        <h5 class="card-category">2018 Sales</h5>
+        <h4 class="card-title">All products</h4>
+        <div ngbDropdown>
+          <button type="button" class="btn btn-round btn-default dropdown-toggle btn-simple btn-icon no-caret"
+            ngbDropdownToggle>
+            <i class="now-ui-icons loader_gear"></i>
+          </button>
+          <div ngbDropdownMenu class="dropdown-menu-right">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+            <a class="dropdown-item text-danger" href="#">Remove Data</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <canvas id="lineChartExampleWithNumbersAndGrid"></canvas>
+          <canvas baseChart id="lineChartExampleWithNumbersAndGrid"
+                      [datasets]="lineChartWithNumbersAndGridData"
+                      [labels]="lineChartWithNumbersAndGridLabels"
+                      [colors]="lineChartWithNumbersAndGridColors"
+                      [options]="lineChartWithNumbersAndGridOptions"
+                      [chartType]="lineChartWithNumbersAndGridType"
+                      (chartHover)="chartHovered($event)"
+                      (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="now-ui-icons arrows-1_refresh-69"></i> Just Updated
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <div class="col-lg-6 col-md-6">
+    <div class="card ">
+      <div class="card-header">
+        <h5 class="card-category">Upload Statistics</h5>
+        <h4 class="card-title">Genere based Analysis</h4>
+      </div>
+      <div class="card-body">
+        <div class="chart-area">
+          <canvas baseChart id="bar1" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)"></canvas>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="now-ui-icons ui-2_time-alarm"></i> Last 7 days
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Spam -->
+
+    <div class="col-md-6 col-lg-6">
+      <div class="card  card-tasks">
+        <div class="card-header ">
+          <h5 class="card-category">Popularity</h5>
+          <h4 class="card-title">Top viewed video</h4>
+        </div>
+        <div class="card-body ">
+          <!-- <div class="table-full-width table-responsive"> -->
+          <table class="table">
+            <thead class=" text-primary">
+              <th>Rank</th>
+              <th>Video Title</th>
+              <th>Description</th>
+              <th>Genere</th>
+              <th class="text-right">views</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of topViews; let i = index">
+                <td >
+                  <h3>#{{i+1}}</h3>
+                  <!-- <div class="form-check">
+                    <label class="form-check-label">
+                      <input class="form-check-input" type="checkbox" checked>
+                      <span class="form-check-sign"></span>
+                    </label>
+                  </div> -->
+                </td>
+                <td class="text-left">
+                  <a href="http://localhost:4200/view-video?id={{item._id}}" target="_blank">{{item.title}}</a>
+                </td>
+                <td>
+                  <p>{{item.description}}</p>
+                </td>
+                <td>
+                  <p>{{item.genere}}</p>
+                </td>
+                <td class="td-actions text-right">
+                  <p>{{item.views}}</p>
+                  <!-- <button type="button" rel="tooltip" title=""
+                      class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                      <i class="now-ui-icons ui-2_settings-90"></i>
+                    </button>
+
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button> -->
+                </td>
+              </tr>
+              <!-- <tr>
+                  <td>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox">
+                        <span class="form-check-sign"></span>
+                      </label>
+                    </div>
+                  </td>
+                  <td class="text-left">Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                  <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                      <i class="now-ui-icons ui-2_settings-90"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                  </td>
+                </tr> -->
+              <!-- <tr>
+                  <td>
+                    <div class="form-check">
+                      <label class="form-check-label">
+                        <input class="form-check-input" type="checkbox" checked>
+                        <span class="form-check-sign"></span>
+                      </label>
+                    </div>
+                  </td>
+                  <td class="text-left">Flooded: One year later, assessing what was lost and what was found when a
+                    ravaging rain swept through metro Detroit
+                  </td>
+                  <td class="td-actions text-right">
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-info btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Edit Task">
+                      <i class="now-ui-icons ui-2_settings-90"></i>
+                    </button>
+                    <button type="button" rel="tooltip" title=""
+                      class="btn btn-danger btn-round btn-icon btn-icon-mini btn-neutral" data-original-title="Remove">
+                      <i class="now-ui-icons ui-1_simple-remove"></i>
+                    </button>
+                  </td>
+                </tr> -->
+            </tbody>
+          </table>
+          <!-- </div> -->
+        </div>
+        <div class="card-footer ">
+          <hr>
+          <div class="stats">
+            <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-lg-6">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-category">Reported vidoes</h5>
+          <h4 class="card-title"> Spam Reports Live</h4>
+        </div>
+        <div class="card-body">
+          <div>
+
+            <!-- <cdk-virtual-scroll-viewport [itemSize]="18 * 7" class="example-viewport"> -->
+            <!-- <div class="table-responsive"> -->
+            <table class="table">
+              <thead class=" text-primary">
+                <th>Video Title</th>
+                <th>Spam Count</th>
+                <th class="text-right">Actions</th>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let item of temp; templateCacheSize: 0">
+                  <td *ngIf="item[0]">
+                    <div>
+                      <p>{{item[0].title}} </p>
+                    </div>
+                  </td>
+                  <td *ngIf="item[0]">
+                    <div>
+                      <p>{{item[0].spamCount}} </p>
+                    </div>
+                  </td>
+                  <td *ngIf="item[0]" class="text-right">
+                    <button mat-raised-button color="primary" (click)="onViewVideoClick(item[0]._id)">View Video</button>
+                    <button mat-raised-button color="warn" (click)="onDelete(item[0]._id)">Delete video</button>
+                  </td>
+                </tr>
+                <!-- totalSpamDetail -->
+
+                <tr *ngFor="let item of totalSpamDetail">
+                  <td> {{item.title}}</td>
+                  <td>{{item.spamCount}}</td>
+                  <td class="text-right">
+                    <button mat-stroked-button color="primary" (click)="onViewVideoClick(item[0]._id)">View Video</button>
+                    <button mat-stroked-button color="warn" (click)="onDelete(item[0]._id)">Delete video</button>
+                  </td>
+                </tr>
+
+
+
+              </tbody>
+            </table>
+          </div>
+          <!-- </cdk-virtual-scroll-viewport> -->
+          <!-- </div> -->
+          <div class="card-footer ">
+            <hr>
+            <div class="stats">
+              <i class="now-ui-icons loader_refresh spin"></i> Updated 3 minutes ago
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  
+</div>

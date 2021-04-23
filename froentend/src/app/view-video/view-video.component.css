@@ -1,0 +1,78 @@
+.center {
+  margin: 0 auto;
+  width: 1100px;
+}
+
+.danger{
+  margin-bottom: 20px;
+  background-color: lightcyan;
+}
+.com1{
+  /* background-color: #d36f60; */
+  font-size: medium;
+  padding: 10px 20px 10px 20px;
+  border-radius: 8px 8px 8px 8px;
+  float: left;
+  align-self: center;
+  width: 60%;
+  max-width: 60%;
+}
+
+
+.plus{
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+
+  background: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), #000;
+  background-position: center;
+  background-size: 50% 2px, 2px 50%; /*thickness = 2px, length = 50% (25px)*/
+  background-repeat: no-repeat;
+}
+.button5{
+  border-radius: 50%;
+}
+.mat-expansion-panel-header{
+  width: 100%;
+  height: fit-content;
+
+}
+
+.mat-accordion{
+  width: 100%;
+  align-items: center;
+}
+
+.mat-button{
+  height: fit-content;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+.comment-form{
+  /* min-width: 150px;
+  max-width: 500px; */
+  width: 100%;
+}
+.comment-full-width{
+  width: 100%;
+  
+}
+.example-full-width {
+  width: 75%;
+  margin-right: 25px;
+}
+.col-md-12{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+ vg-quality-selector .container{
+   background-color: black;
+   height: auto;
+ }
+
+  

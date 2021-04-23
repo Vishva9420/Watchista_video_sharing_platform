@@ -1,0 +1,142 @@
+<head>
+
+  <style>
+    .dropbtn {
+      background-color: white;
+      color:black;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    
+    .dropdown-content a:hover {background-color: #f1f1f1}
+    
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .submit:hover {
+  background-color: #555555;
+  color: white;
+}
+
+.button {
+  background-color:grey; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+    
+    
+    </style>
+</head>
+
+<body>
+  
+  <div class="panel-header panel-header-sm">
+  </div>
+  <div class="main-content">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">Upload Video</h5>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form" (submit)="onSubmit()">
+              <div class="row">
+                <div class="col-md-5 pr-1">
+                  <div class="form-group">
+                    <label>Video Title</label>
+                    <input formControlName="title"  type="text" class="form-control"  placeholder="Video Title">
+                  </div>
+                </div>
+              
+               
+              </div>
+             
+              
+              <!-- <div class="row">
+                <div class="col-md-6 px-1">
+                  <div class="form-group">
+                    <div class="dropdown">
+                      <button class="dropbtn">Genere</button>
+                      <div class="dropdown-content">
+                      <a href="#">Music</a>
+                      <a href="#">Sports</a>
+                      <a href="#">Game</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+
+              <div class="row">
+                <div class="col-md-5 pr-1">
+                  <div class="form-group">
+                    <label>Genere</label>
+                    <input formControlName="genere" type="text" class="form-control"  placeholder="Genere">
+                  </div>
+                </div>
+              
+               
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label>Description Of Video</label>
+                    <textarea formControlName="description" name="description" rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <input  (change)="onFileSelect($event)" class="input has-background-light is-medium" type="file" placeholder="Enter">
+            
+            <br><br>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <button class="button submit" type="submit">Submit</button>
+                  </div>
+                </div>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+   
+    </div>
+  </div>
+
+</body>

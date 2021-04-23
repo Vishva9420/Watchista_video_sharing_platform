@@ -1,0 +1,57 @@
+<link href="//vjs.zencdn.net/5.4.6/video-js.min.css" rel="stylesheet">
+<script src="//vjs.zencdn.net/5.4.6/video.min.js"></script>
+
+<div class="panel-header panel-header-lg">
+  
+
+
+</div>
+
+<div class="main-content">
+  <br>
+  <br>
+  <br><br><br><br><br>
+  
+  <!-- <app-searchbar (search)="search$.next($event)" ></app-searchbar> -->
+
+<br>
+<br>
+
+
+  <!-- <div *ngFor="let video of temp"  >{{video?.title}}</div> -->
+
+  <div class="row">
+    <div class="col-lg-4 col-md-6" *ngFor = "let item of temp">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="card-category">{{item?.title}}</h5>
+          <!-- <h4 class="card-title">{{item?._id}}</h4> -->
+          
+          
+        </div>
+        <div class="card-body">
+          <div>
+            <button  (click) = "onClick(item._id)">
+              <video  id="video_1" class="video-js vjs-default-skin" width="330" height="250" preload="auto" data-setup="{}">
+                <source [src]="getSanitizeUrl(item?.url)"
+                type="application/x-mpegURL">
+              </video>
+              <script>
+                var player = videojs('example-video');
+                player.play();
+                </script>
+            </button> 
+          </div>
+          <mat-chip-list>
+            <mat-chip color="warn" selected><b>Genere:</b> &nbsp; {{item?.genere}}</mat-chip>
+            <mat-chip color="primary" selected ><b>description: </b> &nbsp; {{item?.description}} ...... &nbsp; &nbsp;</mat-chip>
+          </mat-chip-list>
+          <mat-chip color="accent" selected style="margin-top: 2px;"><b>Views: </b> &nbsp; {{item?.views}}</mat-chip>
+          <br><br> <br>
+          <button  mat-fab color="primary" aria-label="Example icon button with a delete icon" style ="border-width:2px; float: right; 
+          margin-bottom: 10px;"(click)="onDelete(item?._id)"><mat-icon>delete</mat-icon></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

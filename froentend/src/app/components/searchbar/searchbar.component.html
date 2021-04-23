@@ -1,0 +1,18 @@
+<!-- <mat-form-field fxLayoutAlign="start center" style="margin-top: 2%"> -->
+    <!-- <mat-placeholder> -->
+      <!-- <mat-icon>search</mat-icon> -->
+      <!-- <span>Search</span> -->
+    <!-- </mat-placeholder> -->
+    <!-- <input matInput [formControl]="this.searchField"/> -->
+  <!-- </mat-form-field> -->
+ 
+  <form>
+    <div class="input-group no-border">
+      <input type="text" value="" class="form-control" placeholder="Search..." [formControl]="this.searchField" />
+      <div class="input-group-append">
+        <div class="input-group-text">
+          <i class="now-ui-icons ui-1_zoom-bold"></i>
+        </div>
+      </div>
+    </div>
+  </form>
